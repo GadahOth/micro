@@ -1,4 +1,6 @@
-<include a CircleCI status badge, here>
+###Status badge
+[![CircleCI](https://circleci.com/gh/GadahOth/micro.svg?style=svg)](https://circleci.com/gh/GadahOth/micro)
+
 
 ## Project Overview
 
@@ -40,6 +42,3 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
-
-##Status badge
-[![CircleCI](https://circleci.com/gh/GadahOth/micro.svg?style=svg)](https://circleci.com/gh/GadahOth/micro)
