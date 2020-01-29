@@ -45,10 +45,10 @@ jobs:
 
       # run lint!
       - run:
-        name: run lint
-        command: |
-          . venv/bin/activate
-          make lint 
+          name: run lint
+          command: |
+           . venv/bin/activate
+            make lint 
 
       - store_artifacts:
           path: test-reports
