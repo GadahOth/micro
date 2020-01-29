@@ -1,0 +1,13 @@
+(.devops) ➜  project-ml-microservice-kubernetes git:(master) ✗ ./run_kubernetes.sh 
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+deployment.apps/micro-app created
+NAME                         READY   STATUS              RESTARTS   AGE
+micro-app-585995ddbc-qt68c   0/1     ContainerCreating   0          0s
+service/micro-app exposed
+(.devops) ➜  project-ml-microservice-kubernetes git:(master) ✗ kubectl get pod                         
+NAME                         READY   STATUS    RESTARTS   AGE
+micro-app-585995ddbc-qt68c   1/1     Running   0          67s
+(.devops) ➜  project-ml-microservice-kubernetes git:(master) ✗ kubectl get svc             
+NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP          4h56m
+micro-app    NodePort    10.96.186.56   <none>        8000:32130/TCP   18s
