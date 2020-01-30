@@ -11,7 +11,7 @@ dockerpath=gadahoth/microproject
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker login --username=gadahoth --email=gadah.oth@gmail.com
-docker tag 3ab710881dac gadahoth/microproject:v1
+docker tag d293c1ca3a1e gadahoth/microproject:latest
 
 # Step 3:
 # Push image to a docker repository
