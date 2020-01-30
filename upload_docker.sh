@@ -5,7 +5,7 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath=gadahoth/microproject
+dockerpath=gadahoth/microproject:latest
 
 # Step 2:  
 # Authenticate & tag
@@ -15,4 +15,4 @@ docker tag d293c1ca3a1e gadahoth/microproject:latest
 
 # Step 3:
 # Push image to a docker repository
-docker push gadahoth/microproject
+docker push gadahoth/microproject:latest

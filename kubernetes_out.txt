@@ -1,13 +1,54 @@
-(.devops) ➜  project-ml-microservice-kubernetes git:(master) ✗ ./run_kubernetes.sh 
+(.devops) ➜  DevOps_Microservices git:(master) ✗ ./run_kubernetes.sh
 kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
 deployment.apps/micro-app created
-NAME                         READY   STATUS              RESTARTS   AGE
-micro-app-585995ddbc-qt68c   0/1     ContainerCreating   0          0s
+NAME                        READY   STATUS              RESTARTS   AGE
+micro-app-b58c97fcf-n6xdf   0/1     ContainerCreating   0          0s
 service/micro-app exposed
-(.devops) ➜  project-ml-microservice-kubernetes git:(master) ✗ kubectl get pod                         
-NAME                         READY   STATUS    RESTARTS   AGE
-micro-app-585995ddbc-qt68c   1/1     Running   0          67s
-(.devops) ➜  project-ml-microservice-kubernetes git:(master) ✗ kubectl get svc             
-NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP          4h56m
-micro-app    NodePort    10.96.186.56   <none>        8000:32130/TCP   18s
+
+
+(.devops) ➜  DevOps_Microservices git:(master) ✗ kubectl get pod
+NAME                        READY   STATUS    RESTARTS   AGE
+micro-app-b58c97fcf-n6xdf   1/1     Running   0          9s
+
+
+(.devops) ➜  DevOps_Microservices git:(master) ✗ kubectl get svc             
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kubernetes   ClusterIP   10.96.0.1       <none>        443/TCP          30h
+micro-app    NodePort    10.96.109.190   <none>        8000:31414/TCP   13s
+
+➜  DevOps_Microservices git:(master) ✗ ./make_prediction.sh 
+Port: 31414
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+
+
+
+
+
+ * Debug mode: on
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator DecisionTreeRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator GradientBoostingRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator DecisionTreeRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator GradientBoostingRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+ * Debugger is active!
+ * Debugger PIN: 231-779-307
+[2020-01-30 18:09:17,556] INFO in app: JSON payload: {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}} 
+
+[2020-01-30 18:09:17,559] INFO in app: Inference payload DataFrame:    CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98 
+
+[2020-01-30 18:09:17,571] INFO in app: Scaling Payload:   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98 
+
+[2020-01-30 18:09:17,585] INFO in app: prediction [20.35373177134412] 
+172.17.0.1 - - [30/Jan/2020 18:09:17] "POST /predict HTTP/1.1" 200 -

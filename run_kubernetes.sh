@@ -8,7 +8,7 @@ dockerpath=gadahoth/microproject:latest
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-kubectl run micro-app --image=gadahoth/microproject:v1 --port=80
+kubectl run micro-app --image=gadahoth/microproject:latest --port=80
 
 # Step 3:
 # List kubernetes pods
